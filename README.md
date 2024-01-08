@@ -1,18 +1,38 @@
-# Salesforce DX Project: Next Steps
+# Generate a custom VisualForce Page for Orders with Product Images
+<h1 align="center">
+   <a href="https://i.imgur.com/ZrauGBJ.png">
+	<img alt="Logo" src="https://i.imgur.com/ZrauGBJ.png" />
+	</a>
+    <br>
+</h1>
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
 
-## How Do You Plan to Deploy Your Changes?
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+<h4 align="center">
+  <p>Projetado para casos reais</p>
+</h4>  
+  <p align="left">
+  A solução desenvolvida pode ser dividida em duas partes: O desenvolvimento de uma logica em APEX para definir a imagem do produto de forma facilitada atráves da simples anexação da imagem na related list ContentDocument. </p>
+  <p> E em seguida a criação da pagina Visualforce para gerar a cotação personalizada, o controller e o botão para gerar o documento.
+  </p>
 
-## Configure Your Salesforce DX Project
+<h1 align="center">
+   <a href="https://i.imgur.com/hJLghYK.jpg">
+	<img alt="Logo" src="https://i.imgur.com/hJLghYK.jpg" />
+	</a>
+    <br>
+</h1>
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
 
-## Read All About It
+<p align="center">
+  <a href="#rocket-technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#information_source-how-to-use">Como utilizar</a>
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+## :rocket: Tecnologias
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+-  [VisualForce](https://developer.salesforce.com/docs/atlas.en-us.pages.meta/pages/pages_intro.htm)
+-  [APEX](https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_dev_guide.htm)
+-  [CSS](https://developer.mozilla.org/pt-BR/docs/Web/CSS)
+-  [CRM metadata](https://www.salesforce.com/br/crm/)
