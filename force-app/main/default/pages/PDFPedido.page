@@ -1,0 +1,92 @@
+<!-- observe como nas proximas duas linhas chama o controller e o css da pagina -->
+<apex:page controller="PedidoController" renderAs="pdf">
+     <!-- <apex:stylesheet value="{!$Resource.cssPedido}" />-->
+    <html>
+        <!-- no head especificamos as dimenses da pagina -->
+        <head>
+            <style type="text/css">
+                <!-- Deixa o PDF do tamanho A4 sufite -->
+                @page {
+                    size: 21.0cm 30.7cm;
+                    margin-top: 25mm;
+                    margin-left: 20mm;
+                    margin-right: 20mm;
+                    margin-bottom: 25mm;
+                    
+                    @bottom-left {
+                        content: element(footer);
+                    } 
+                }
+            </style>
+        </head>
+        <body>
+            <!-- Assim como na linha abaixo como no mesmo codigo da tabela, observe como fazemos
+            a chamada da variavel criada no controller e em seguida o campo DE IMAGEM buscado na soql -->
+          
+           <!--  <apex:outputText value="{!pedido.Logotipo__c}" escape="false"/> <!-- forma de pegar a imagem de um campo -->
+
+            <div class="pedido">
+                <h4>Pedido</h4>
+                <div style = "float: left;">
+                    Número do pedido: {!pedido.OrderNumber}<br/>
+                    CNPJ/CPF do Cliente: {!pedido.OrderNumber}<br/>
+                    Endereço de cobrança: {!pedido.BillingStreet}<br/>    
+                </div>
+                <div style = "float: right;">
+                    <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
+                        Data de criação: <apex:param value="{!pedido.CreatedDate}" /> 
+                    </apex:outputText><p/>
+                   <!--  Razão social: {!pedido.RazaoSocial__c}<br/> -->
+                 
+                </div>
+            </div>
+            <br/><br/><br/>
+            <div class="produtos">
+                <h4>Produtos do Pedido</h4>
+                <table style="width:100%;" cellspacing= "0" cellpadding="2">
+                    <tr>
+                        <th>Ordem</th>
+                        <th>Imagem</th>
+                        <th>Produto</th>
+                        <th>Código</th>
+                        <th>Quantidade</th>
+                        <th>Preço Unitário</th>
+                        <th>IPI</th>
+                        <th>Valor Total + IPI</th>
+                    </tr>
+                    <!-- forma de istanciar a variavel, para depois chama-lo na coluna -->
+                    <apex:repeat value="{!produtosDoPedido}" var="produtoDoPedido">
+                        <tr>  
+                           <!-- <td>{!produtoDoPedido.Ordenacao__c}</td>  forma de pegar a ordenação do controller -->
+                          <!--  <td><apex:outputText value="{!produtoDoPedido.Product_img__c}" escape="false"/></td>   forma de pegar a imagem de um campo -->                                              
+                            <td>{!produtoDoPedido.Product2.Name}</td>
+                            <td>{!produtoDoPedido.Product2.ProductCode}</td>
+                            <td>{!produtoDoPedido.Quantity}</td>
+                            <td>{!produtoDoPedido.UnitPrice}</td>
+                           <!-- <td>{!produtoDoPedido.IPI__c}</td>
+                            <td>{!produtoDoPedido.Valor_Total_IPI__c}</td> -->
+                        </tr>
+                    </apex:repeat>
+                </table>
+                
+                <div class = "adicionais">
+                    <p>Observações do pedido</p>
+                </div>
+                <p> Ordem de compra: {!pedido.OrderNumber}</p>
+                <p> Observação: {!pedido.OrderNumber}</p>
+                
+                <div class = "adicionais">
+                    <p>transportadora</p>
+                </div>
+                <p> Frete: {!pedido.OrderNumber} </p>
+                <p> Nome da transportadora: {!pedido.OrderNumber}</p>
+           
+                <div class = "adicionais">
+                    <p>Totais</p>
+                </div>
+                <p> Valor total sem IPI: {!pedido.TotalAmount}</p>
+                <p> Valor total + IPI: {!pedido.OrderNumber} </p>
+            </div>
+        </body>
+    </html>
+</apex:page>
