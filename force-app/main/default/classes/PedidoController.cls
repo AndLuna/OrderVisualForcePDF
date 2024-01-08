@@ -22,7 +22,7 @@ essa variavel na SOQL dos outros dois metodos getorders e getorderitems
     
     public Order getOrder(String idDoPedido){
         List<Order> pedidos = [SELECT OrderNumber, Status,
-                               BillingStreet, CreatedDate, TotalAmount, 
+                               BillingStreet, CreatedDate, TotalAmount, Logotipo__c,
                                ShippingStreet 
                                FROM Order WHERE Id = :idDoPedido]; // <<-- veja aqui a variavel que guarda o valor da url sendo chamada
         return pedidos.get(0);
@@ -30,14 +30,14 @@ essa variavel na SOQL dos outros dois metodos getorders e getorderitems
     
     public List<OrderItem> getProdutosDoPedido(String idDoPedido){
         List<OrderItem> items = [SELECT Product2.Name, Quantity,
-                                 Product2.ProductCode, UnitPrice
+                                 Product2.ProductCode, UnitPrice, Product_img__c
                                  FROM OrderItem WHERE OrderId = :idDoPedido
                                 ];
-        //aqui criei uma logica de contador para exibir diretamente na visualPage, já que o campo ordenação não estava funcionando no registro
-        /*    Integer contador = 1;
+        //aqui criei uma logica de contador para exibir diretamente na visualPage
+       Integer contador = 1;
 for(OrderItem item : items) {
 item.Ordenacao__c = contador++;
-}*/
+}
         return items;
     }
 }

@@ -1,6 +1,6 @@
 <!-- observe como nas proximas duas linhas chama o controller e o css da pagina -->
 <apex:page controller="PedidoController" renderAs="pdf">
-     <!-- <apex:stylesheet value="{!$Resource.cssPedido}" />-->
+      <apex:stylesheet value="{!$Resource.cssPedido}" />
     <html>
         <!-- no head especificamos as dimenses da pagina -->
         <head>
@@ -23,7 +23,7 @@
             <!-- Assim como na linha abaixo como no mesmo codigo da tabela, observe como fazemos
             a chamada da variavel criada no controller e em seguida o campo DE IMAGEM buscado na soql -->
           
-           <!--  <apex:outputText value="{!pedido.Logotipo__c}" escape="false"/> <!-- forma de pegar a imagem de um campo -->
+           <apex:outputText value="{!pedido.Logotipo__c}" escape="false"/> <!-- forma de pegar a imagem de um campo -->
 
             <div class="pedido">
                 <h4>Pedido</h4>
@@ -36,7 +36,6 @@
                     <apex:outputText value="{0,date,dd'/'MM'/'yyyy}">
                         Data de criação: <apex:param value="{!pedido.CreatedDate}" /> 
                     </apex:outputText><p/>
-                   <!--  Razão social: {!pedido.RazaoSocial__c}<br/> -->
                  
                 </div>
             </div>
@@ -50,21 +49,17 @@
                         <th>Produto</th>
                         <th>Código</th>
                         <th>Quantidade</th>
-                        <th>Preço Unitário</th>
-                        <th>IPI</th>
-                        <th>Valor Total + IPI</th>
+                        <th>Preço Unitário</th>                    
                     </tr>
                     <!-- forma de istanciar a variavel, para depois chama-lo na coluna -->
                     <apex:repeat value="{!produtosDoPedido}" var="produtoDoPedido">
                         <tr>  
-                           <!-- <td>{!produtoDoPedido.Ordenacao__c}</td>  forma de pegar a ordenação do controller -->
-                          <!--  <td><apex:outputText value="{!produtoDoPedido.Product_img__c}" escape="false"/></td>   forma de pegar a imagem de um campo -->                                              
+                          <td>{!produtoDoPedido.Ordenacao__c}</td>   <!--forma de pegar a ordenação do controller -->
+                          <td><apex:outputText value="{!produtoDoPedido.Product_img__c}" escape="false"/></td>   <!-- forma de pegar a imagem de um campo -->                                              
                             <td>{!produtoDoPedido.Product2.Name}</td>
                             <td>{!produtoDoPedido.Product2.ProductCode}</td>
                             <td>{!produtoDoPedido.Quantity}</td>
                             <td>{!produtoDoPedido.UnitPrice}</td>
-                           <!-- <td>{!produtoDoPedido.IPI__c}</td>
-                            <td>{!produtoDoPedido.Valor_Total_IPI__c}</td> -->
                         </tr>
                     </apex:repeat>
                 </table>

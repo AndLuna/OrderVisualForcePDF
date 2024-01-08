@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GlobalValueSet xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customValue>
+        <fullName>logo1</fullName>
+        <default>false</default>
+        <label>logo1</label>
+    </customValue>
+    <customValue>
+        <fullName>logo2</fullName>
+        <default>false</default>
+        <label>logo2</label>
+    </customValue>
+    <masterLabel>Filial que está recebendo o pedido</masterLabel>
+    <sorted>false</sorted>
+</GlobalValueSet>

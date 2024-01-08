@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Logotipo__c</fullName>
+    <externalId>false</externalId>
+    <formula>IF(ISPICKVAL(FilialQueEstaRecebendoOPedido__c, "logo1"), IMAGE('https://lunacorp-dev-ed.develop.lightning.force.com/resource/1704535181000/logo1?', 'LightLogo', 125, 200),
+        IF(ISPICKVAL(FilialQueEstaRecebendoOPedido__c, "logo2"), IMAGE('https://lunacorp-dev-ed.develop.lightning.force.com/resource/1704535181000/logo2?', 'LightLogo', 125, 200),
+        IMAGE("/sfc/servlet.shepherd/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0683t00000Cgq7w&operationContext=CHATTER&contentId=05T3t00000kXnZU","", 200, 200)))
+        </formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Logotipo</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>
